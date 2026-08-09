@@ -44,9 +44,10 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        'fixed inset-x-0 top-0 z-50 bg-white transition-shadow duration-300',
+        'fixed inset-x-0 top-0 z-50 bg-white',
         scrolled ? 'shadow-nav' : 'shadow-sm',
       )}
+      style={{ transform: 'translateZ(0)', willChange: 'transform' }}
     >
       <nav className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between gap-2 px-5 sm:px-8">
         <a href="#top" onClick={(e) => goTo(e, '#top')} className="flex shrink-0 items-center gap-2.5 cursor-pointer" aria-label={`${HACKATHON_NAME} home`}>

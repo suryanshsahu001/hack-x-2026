@@ -407,6 +407,35 @@ export function AnimatedBackground({ className }: AnimatedBackgroundProps) {
   useEffect(() => {
     const el = ref.current
     if (!el) return
+    const sample = () => {
+      el.style.top = '0'
+      el.style.left = '0'
+      el.style.width = `${window.innerWidth}px`
+      el.style.height = `${window.innerHeight}px`
+    }
+    let w = window.innerWidth
+    let h = window.innerHeight
+    sample()
+    const onResize = () => {
+      const dw = Math.abs(window.innerWidth - w)
+      const dh = Math.abs(window.innerHeight - h)
+      if (dw >= 100 || dh >= 100) {
+        w = window.innerWidth
+        h = window.innerHeight
+        sample()
+      }
+    }
+    window.addEventListener('resize', onResize, { passive: true })
+    window.addEventListener('orientationchange', onResize)
+    return () => {
+      window.removeEventListener('resize', onResize)
+      window.removeEventListener('orientationchange', onResize)
+    }
+  }, [])
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
     let timer: number | undefined
     const onScroll = () => {
       el.classList.add('bg-scrolling')
