@@ -26,7 +26,7 @@
   --shadow-card: var(--shadow-card);
   --shadow-nav: var(--shadow-nav);
 
-  --animate-scroll-bounce: scroll-bounce 2s ease-in-out infinite;
+--animate-scroll-bounce: scroll-bounce 2s ease-in-out infinite;
   --animate-shimmer: shimmer 2s linear infinite;
   --animate-spin-slow: spin 8s linear infinite;
 }
@@ -327,12 +327,10 @@ body {
 @keyframes bh-warp {
   0%,
   100% {
-    transform: scaleX(0.38) scaleY(0.38);
-    filter: blur(2px);
+    transform: rotate(-10deg) scaleX(0.38) scaleY(0.38);
   }
   50% {
-    transform: scaleX(0.4) scaleY(0.4);
-    filter: blur(6px);
+    transform: rotate(-10deg) scaleX(0.4) scaleY(0.4);
   }
 }
 

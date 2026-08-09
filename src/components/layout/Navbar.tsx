@@ -24,6 +24,7 @@ export function Navbar() {
   }
 
   useEffect(() => {
+    if (window.matchMedia('(max-width: 767px)').matches) return
     const sections = NAV_LINKS.map((l) => l.href.slice(1))
     const observer = new IntersectionObserver(
       (entries) => {
@@ -41,12 +42,9 @@ export function Navbar() {
   }, [])
 
   return (
-    <motion.header
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+    <header
       className={cn(
-        'fixed inset-x-0 top-0 z-50 bg-white transition-all duration-300',
+        'fixed inset-x-0 top-0 z-50 bg-white transition-shadow duration-300',
         scrolled ? 'shadow-nav' : 'shadow-sm',
       )}
     >
@@ -110,9 +108,9 @@ export function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
+            initial={{ opacity: 0, maxHeight: 0 }}
+            animate={{ opacity: 1, maxHeight: 480 }}
+            exit={{ opacity: 0, maxHeight: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="overflow-hidden border-t border-neutral-200 bg-white lg:hidden"
           >
@@ -140,6 +138,6 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   )
 }

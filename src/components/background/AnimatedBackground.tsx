@@ -136,15 +136,13 @@ function GradientOrbs() {
           key={i}
           className="pointer-events-none absolute rounded-full"
           style={{
-            width: o.w,
-            height: o.h,
+width: `min(${o.w}px, 130vw)`,
+            height: `min(${o.h}px, 130vw)`,
             top: o.top,
             left: o.left,
-            background: `radial-gradient(circle, color-mix(in srgb, var(--pista) ${o.opacity}, transparent) 0%, color-mix(in srgb, var(--pista-deep) ${o.fade}, transparent) 45%, transparent 70%)`,
-            filter: `blur(${o.blur}px)`,
+            background: `radial-gradient(circle, color-mix(in srgb, var(--pista) ${o.opacity}, transparent) 0%, color-mix(in srgb, var(--pista-deep) ${o.fade}, transparent) 45%, transparent 100%)`,
             animation: `${o.anim} ${o.duration} ease-in-out infinite`,
             animationDelay: o.delay,
-            willChange: 'transform',
           }}
         />
       ))}
@@ -198,8 +196,8 @@ function BlackHole({ isMobile }: { isMobile: boolean }) {
       style={{
         top: '50%',
         left: '50%',
-        width: 840,
-        height: 840,
+        width: 'min(840px, 150vw)',
+        height: 'min(840px, 150vw)',
         opacity: 0.9,
         transform: 'translate(calc(var(--mx,50%) * 0.04 - 50%), calc(var(--my,50%) * 0.04 - 50%))',
       }}
@@ -217,6 +215,7 @@ function BlackHole({ isMobile }: { isMobile: boolean }) {
             maskImage: DISK_MASK,
             WebkitMaskImage: DISK_MASK,
             boxShadow: '0 0 70px 12px rgba(255,180,80,0.28)',
+            filter: 'blur(4px)',
             animation: 'bh-warp 14s ease-in-out infinite',
           }}
         />
@@ -412,7 +411,7 @@ export function AnimatedBackground({ className }: AnimatedBackgroundProps) {
     const onScroll = () => {
       el.classList.add('bg-scrolling')
       window.clearTimeout(timer)
-      timer = window.setTimeout(() => el.classList.remove('bg-scrolling'), 300)
+      timer = window.setTimeout(() => el.classList.remove('bg-scrolling'), 600)
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => {
@@ -426,7 +425,7 @@ export function AnimatedBackground({ className }: AnimatedBackgroundProps) {
       ref={ref}
       className={cn('pointer-events-none absolute inset-0 overflow-hidden', className)}
       aria-hidden="true"
-      style={{ transform: 'translateZ(0)' }}
+      style={{ transform: 'translateZ(0)', willChange: 'transform', contain: 'strict' }}
     >
       <GradientOrbs />
       <BlackHole isMobile={isMobile} />
