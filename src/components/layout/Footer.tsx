@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowUp, Globe, Mail } from 'lucide-react'
-import { HACKATHON_NAME, REGISTER_URL, NAV_LINKS, CONTACT_EMAILS } from '../../config'
+import { HACKATHON_NAME, NAV_LINKS, CONTACT_EMAILS } from '../../config'
 import { LogoMark } from '../ui/LogoMark'
 
 const SOCIALS = [
@@ -32,8 +32,6 @@ const SOCIALS = [
 ]
 
 export function Footer() {
-  const year = new Date().getFullYear()
-
   return (
     <footer className="relative border-t border-white/5 bg-bg">
       <div className="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8">
@@ -80,11 +78,6 @@ export function Footer() {
                   </a>
                 </li>
               ))}
-              <li>
-                <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-text/60 transition-colors hover:text-pista cursor-pointer">
-                  Register
-                </a>
-              </li>
             </ul>
           </div>
 
@@ -107,26 +100,15 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-6 border-t border-white/5 pt-8 sm:flex-row">
-          <p className="text-sm text-text/40">
-            &copy; {year} {HACKATHON_NAME}. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            <a href="#top" className="text-sm text-text/40 transition-colors hover:text-text cursor-pointer">
-              Privacy
-            </a>
-            <a href="#top" className="text-sm text-text/40 transition-colors hover:text-text cursor-pointer">
-              Terms
-            </a>
-            <motion.a
-              href="#top"
-              aria-label="Back to top"
-              whileHover={{ y: -3 }}
-              className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-text/60 transition-colors hover:border-pista/40 hover:text-pista cursor-pointer"
-            >
-              <ArrowUp className="h-4 w-4" />
-            </motion.a>
-          </div>
+        <div className="mt-14 flex items-center justify-center border-t border-white/5 pt-8">
+          <motion.a
+            href="#top"
+            aria-label="Back to top"
+            whileHover={{ y: -3 }}
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-text/60 transition-colors hover:border-pista/40 hover:text-pista cursor-pointer"
+          >
+            <ArrowUp className="h-4 w-4" />
+          </motion.a>
         </div>
       </div>
     </footer>

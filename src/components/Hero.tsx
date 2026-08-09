@@ -37,7 +37,7 @@ export function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-pista opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-pista" />
               </span>
-              Registration open — {EVENT_DETAILS[0].value}
+              Registration open — closes 25 August 2026
             </Badge>
           </motion.div>
 
@@ -58,8 +58,8 @@ export function Hero() {
               Register Now
               <ArrowRight className="h-5 w-5" />
             </Button>
-            <Button variant="outline" size="lg" asChild href="#about">
-              Explore the event
+            <Button variant="outline" size="lg" asChild href="#instructions">
+              Instructions
             </Button>
           </motion.div>
 

@@ -32,12 +32,12 @@ export function Sponsors() {
           viewport={{ once: true, margin: '-60px' }}
           className="mt-14 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6"
         >
-          {SPONSORS.map((name) => (
+          {SPONSORS.map((name, i) => (
             <motion.div
-              key={name}
+              key={`${name}-${i}`}
               variants={fadeInUp}
               whileHover={{ y: -4, scale: 1.02 }}
-              className="flex items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-7 text-sm font-semibold text-text/45 transition-all duration-300 hover:border-pista/30 hover:text-text/80 cursor-pointer"
+              className="flex items-center justify-center rounded-2xl border border-dashed border-white/15 bg-white/[0.03] px-4 py-7 text-sm font-semibold text-text/40 transition-all duration-300 hover:border-pista/30 hover:text-text/80 cursor-pointer"
             >
               {name}
             </motion.div>

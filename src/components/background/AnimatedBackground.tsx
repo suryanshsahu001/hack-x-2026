@@ -329,7 +329,7 @@ function BlackHole({ isMobile }: { isMobile: boolean }) {
           />
         ))}
 
-        /* Event horizon */
+        {/* Event horizon */}
         <div
           className="absolute"
           style={{

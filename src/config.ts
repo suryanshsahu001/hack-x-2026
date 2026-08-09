@@ -51,7 +51,6 @@ export const NAV_LINKS = [
   { label: 'Phases', href: '#phases' },
   { label: 'Sponsors', href: '#sponsors' },
   { label: 'Content Wall', href: '#content-wall' },
-  { label: 'Register', href: '#register' },
 ]
 
 export const TRUST_BADGES = [
@@ -102,7 +101,6 @@ export const PHASES: Phase[] = [
     points: [
       'Finalists present polished, deployment-ready builds',
       'Judged by clinicians, founders, and investing partners',
-      'Prize ceremony: $5,000 grand prize plus incubation offers',
       'Demo-day investor mixer and post-event mentorship',
     ],
   },
@@ -181,8 +179,6 @@ export const ABOUT_POINTS = [
 
 export const STATS = [
   { value: '36h', label: 'of non-stop building, from kickoff to demo day' },
-  { value: '20+', label: 'clinicians and mentors in the room all weekend' },
-  { value: '100%', label: 'free — food, workspace, and swag included' },
   { value: '1', label: 'track — medical devices & health-tech' },
 ]
 
@@ -200,12 +196,12 @@ export const PRIZES = [
 ]
 
 export const SPONSORS = [
-  'HealthSync',
-  'MediCloud',
-  'Vitality AI',
-  'CareBridge',
-  'Nexus Labs',
-  'BioSpark',
+  'Your Brand Here',
+  'Your Brand Here',
+  'Your Brand Here',
+  'Your Brand Here',
+  'Your Brand Here',
+  'Your Brand Here',
 ]
 
 export const NAME_SUGGESTIONS = [

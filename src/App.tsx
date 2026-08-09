@@ -6,6 +6,7 @@ import { EventInfo } from './components/EventInfo'
 import { Phases } from './components/Phases'
 import { Sponsors } from './components/Sponsors'
 import { ContentWall } from './components/ContentWall'
+import { Instructions } from './components/Instructions'
 import { RegisterCTA } from './components/RegisterCTA'
 import { AnimatedBackground } from './components/background/AnimatedBackground'
 
@@ -29,6 +30,7 @@ export default function App() {
           <Phases />
           <Sponsors />
           <ContentWall />
+          <Instructions />
           <RegisterCTA />
         </main>
         <Footer />
