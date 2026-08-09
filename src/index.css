@@ -250,6 +250,13 @@
 .scan-line {
   animation: scan-move 2.2s ease-in-out infinite;
 }
+
+/* Pause the animated background while the user is scrolling — prevents
+   compositor repaint glitches (visible as "breaking" when scrolling up). */
+.bg-scrolling,
+.bg-scrolling * {
+  animation-play-state: paused !important;
+}
 @keyframes scan-move {
   0%,
   100% {

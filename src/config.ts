@@ -12,6 +12,8 @@ export const CONTACT_EMAILS = [
 
 export const REGISTER_URL = 'https://docs.google.com/forms/d/1cLNmhodPixaZwJdY-MGL9rAQlmIjazL58rI97tbeZkQ/viewform'
 
+export const WHATSAPP_COMMUNITY_URL = 'https://chat.whatsapp.com/BaPw2IWxbVs5bY3UwSrvF4'
+
 // Apps Script Web App URL that reads the form's linked response Sheet and returns
 // JSON { teamCount: number }. Leave empty to show "--" for the team counter.
 //

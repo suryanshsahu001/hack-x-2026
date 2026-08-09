@@ -405,11 +405,28 @@ export function AnimatedBackground({ className }: AnimatedBackgroundProps) {
     return () => el.removeEventListener('mousemove', onMove)
   }, [])
 
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    let timer: number | undefined
+    const onScroll = () => {
+      el.classList.add('bg-scrolling')
+      window.clearTimeout(timer)
+      timer = window.setTimeout(() => el.classList.remove('bg-scrolling'), 300)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.clearTimeout(timer)
+    }
+  }, [])
+
   return (
     <div
       ref={ref}
       className={cn('pointer-events-none absolute inset-0 overflow-hidden', className)}
       aria-hidden="true"
+      style={{ transform: 'translateZ(0)' }}
     >
       <GradientOrbs />
       <BlackHole isMobile={isMobile} />

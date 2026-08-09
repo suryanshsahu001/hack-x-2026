@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type MouseEvent } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X, ArrowRight } from 'lucide-react'
 import { HACKATHON_NAME, NAV_LINKS, REGISTER_URL } from '../../config'
@@ -11,6 +11,17 @@ export function Navbar() {
   const scrolled = useScrolled(24)
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState('')
+
+  const goTo = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    setOpen(false)
+    const el = document.getElementById(href.slice(1))
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    } else {
+      window.location.hash = href
+    }
+  }
 
   useEffect(() => {
     const sections = NAV_LINKS.map((l) => l.href.slice(1))
@@ -40,7 +51,7 @@ export function Navbar() {
       )}
     >
       <nav className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between gap-2 px-5 sm:px-8">
-        <a href="#top" className="flex shrink-0 items-center gap-2.5 cursor-pointer" aria-label={`${HACKATHON_NAME} home`}>
+        <a href="#top" onClick={(e) => goTo(e, '#top')} className="flex shrink-0 items-center gap-2.5 cursor-pointer" aria-label={`${HACKATHON_NAME} home`}>
           <LogoMark />
           <span className="whitespace-nowrap font-display text-lg font-bold tracking-tight text-neutral-900">
             {HACKATHON_NAME}
@@ -59,6 +70,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
+              onClick={(e) => goTo(e, link.href)}
               className={cn(
                 'relative rounded-lg px-3.5 py-2 text-sm font-medium transition-colors duration-200',
                 active === link.href ? 'text-neutral-900' : 'text-neutral-500 hover:text-neutral-900',
@@ -109,10 +121,10 @@ export function Navbar() {
                 <motion.a
                   key={link.href}
                   href={link.href}
+                  onClick={(e) => goTo(e, link.href)}
                   initial={{ opacity: 0, x: -12 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.05 * i }}
-                  onClick={() => setOpen(false)}
                   className="rounded-lg px-3 py-3 text-base font-medium text-neutral-700 transition-colors hover:bg-neutral-900/5 hover:text-neutral-900 cursor-pointer"
                 >
                   {link.label}

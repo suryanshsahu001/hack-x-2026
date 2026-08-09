@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { QRCodeSVG } from 'qrcode.react'
 import { ArrowRight } from 'lucide-react'
-import { REGISTER_URL, REGISTRATION_DEADLINE_ISO } from '../config'
+import { REGISTER_URL, REGISTRATION_DEADLINE_ISO, WHATSAPP_COMMUNITY_URL } from '../config'
 import { Button } from './ui/Button'
 import { CountdownTimer } from './ui/CountdownTimer'
 import { ConfettiBurst } from './ui/ConfettiBurst'
@@ -53,16 +53,16 @@ export function RegisterCTA() {
                 <div className="absolute inset-x-3 top-0 h-0.5 bg-gradient-to-r from-transparent via-pista to-transparent opacity-70 scan-line" />
               </div>
               <a
-                href={REGISTER_URL}
+                href={WHATSAPP_COMMUNITY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Scan this QR code or click to open the registration form"
+                aria-label="Scan this QR code or click to join the WhatsApp community"
                 className="block cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-pista focus-visible:ring-offset-2"
               >
-                <QRCodeSVG value={REGISTER_URL} size={176} bgColor="#0A0F14" fgColor="#E2E8F0" level="M" />
+                <QRCodeSVG value={WHATSAPP_COMMUNITY_URL} size={176} bgColor="#0A0F14" fgColor="#E2E8F0" level="M" />
               </a>
             </div>
-            <p className="text-xs text-text/50">Scan to register — or just click the QR code</p>
+            <p className="text-xs text-text/50">Scan to join our WhatsApp community</p>
           </div>
         </div>
       </motion.div>
