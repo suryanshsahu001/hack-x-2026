@@ -18,7 +18,7 @@ function DetailChip({ label, value }: { label: string; value: string }) {
 
 export function Hero() {
   return (
-    <section id="top" className="relative flex min-h-screen items-center justify-center overflow-hidden pt-16">
+    <section id="top" className="relative flex min-h-dvh items-center justify-center overflow-hidden pt-16">
       <div
         className="pointer-events-none absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_center,transparent_45%,color-mix(in_srgb,var(--bg)_85%,transparent)_100%)]"
         aria-hidden="true"

@@ -12,7 +12,7 @@ import { AnimatedBackground } from './components/background/AnimatedBackground'
 
 export default function App() {
   return (
-    <div className="relative min-h-screen bg-bg text-text">
+    <div className="relative min-h-dvh bg-bg text-text">
         <AnimatedBackground className="fixed inset-0 z-0" />
         <div className="relative z-10">
         <a
