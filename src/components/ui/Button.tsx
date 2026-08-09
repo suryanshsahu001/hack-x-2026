@@ -82,7 +82,13 @@ export function Button({
       transition={{ type: 'spring', stiffness: 400, damping: 22 }}
     >
       {asChild && href ? (
-        <a href={href} target="_blank" rel="noopener noreferrer" className={cls} style={style}>
+        <a
+          href={href}
+          target={href.startsWith('http') ? '_blank' : undefined}
+          rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+          className={cls}
+          style={style}
+        >
           {content}
         </a>
       ) : (
