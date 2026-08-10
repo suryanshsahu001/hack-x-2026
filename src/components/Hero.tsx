@@ -37,7 +37,7 @@ export function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-pista opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-pista" />
               </span>
-              <span className="font-display text-base font-extrabold tracking-tight text-gradient-pista">
+              <span className="font-display text-base font-extrabold tracking-tight text-text">
                 Registration open — closes 25 August 2026
               </span>
             </Badge>
